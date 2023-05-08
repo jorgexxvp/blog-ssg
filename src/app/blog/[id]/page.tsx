@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 
 export default function Post({ image, htmlString, data }:any) {
     const [b,s] = useState<any>(null)
-    const params = useParams()
+  
 
     const aaaaa = async() =>{
         const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs/${params.id}`
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs/`
   );
 
   const markdownWithMeta = await res.json();
@@ -22,9 +22,13 @@ export default function Post({ image, htmlString, data }:any) {
     }
 
     useEffect(()=>{aaaaa()},[])
-
+    const array = ['ga','ga','ga']
   return (
-    <Card description={b?.attributes?.description} image={b?.attributes?.imageUrl} title={b?.attributes?.title}/>
+    <div className={styles.CardContent}>
+      {b?.map((data:any , index:number) => (
+          <Card description={data?.attributes?.description} image={data?.attributes?.imageUrl} title={data?.attributes?.title} key={index}/>                              
+      ))}
+    </div>
 
   
     

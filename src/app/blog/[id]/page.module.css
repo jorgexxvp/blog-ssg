@@ -1,12 +1,20 @@
+.CardContent{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
 .Card{
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 470px;
   justify-content: center;
   border-radius: 15px;
   gap:5px;
   height: 500px;
   background-color: lightblue;
+ 
 }
 
 .image{
@@ -19,6 +27,8 @@
   height: 50px;
 }
 .CardBottom{
-  display: flex;
+  display: flex; 
+  padding: 15px;
+  gap: 15px;
   flex-direction: column;
 };
